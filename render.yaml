@@ -32,3 +32,13 @@ services:
         sync: false
       - key: OPENAI_API_KEY
         sync: false
+  - type: static
+    name: ivarp-frontend
+    env: static
+    plan: free
+    region: oregon
+    branch: main
+    repo: https://github.com/varungajula07-lang/IVARP
+    dir: backend/frontend
+    publishPath: .
+    autoDeploy: true
