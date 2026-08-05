@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: ivarp-backend
+    env: docker
+    plan: free
+    region: oregon
+    branch: main
+    repo: https://github.com/varungajula07-lang/IVARP
+    dir: .
+    dockerfilePath: backend/Dockerfile
+    autoDeploy: true
+    buildCommand: ""
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: ALGORITHM
+        sync: false
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        sync: false
+      - key: REFRESH_TOKEN_EXPIRE_MINUTES
+        sync: false
+      - key: EMAIL_USERNAME
+        sync: false
+      - key: EMAIL_PASSWORD
+        sync: false
+      - key: SMTP_SERVER
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
