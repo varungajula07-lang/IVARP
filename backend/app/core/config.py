@@ -12,8 +12,6 @@ class Settings(BaseSettings):
     algorithm: str = Field("HS256", env="ALGORITHM")
     access_token_expire_minutes: int = Field(30, env="ACCESS_TOKEN_EXPIRE_MINUTES")
     refresh_token_expire_minutes: int = Field(1440, env="REFRESH_TOKEN_EXPIRE_MINUTES")
-    supabase_url: str = Field(..., env="SUPABASE_URL")
-    supabase_key: SecretStr = Field(..., env="SUPABASE_KEY")
     openai_api_key: SecretStr | None = Field(None, env="OPENAI_API_KEY")
     gemini_api_key: SecretStr | None = Field(None, env="GEMINI_API_KEY")
     groq_api_key: SecretStr | None = Field(None, env="GROQ_API_KEY")

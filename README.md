@@ -6,7 +6,7 @@ Integrated Vulnerability Assessment and Risk Platform (IVARP) is an AI-powered c
 
 - Frontend: Next.js, React, Tailwind CSS, TypeScript, Shadcn UI, Chart.js, Axios
 - Backend: FastAPI, Python, SQLAlchemy, Pydantic, JWT Authentication, PostgreSQL, Alembic, bcrypt
-- Database: PostgreSQL / Supabase
+-- Database: PostgreSQL
 - Deployment: Frontend -> Vercel, Backend -> Render/Railway
 
 ## Folder Structure
@@ -52,8 +52,6 @@ SECRET_KEY=<strong-secret>
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 REFRESH_TOKEN_EXPIRE_MINUTES=1440
-SUPABASE_URL=<supabase-url>
-SUPABASE_KEY=<supabase-key>
 OPENAI_API_KEY=<openai-api-key>
 GEMINI_API_KEY=<gemini-api-key>
 GROQ_API_KEY=<groq-api-key>
