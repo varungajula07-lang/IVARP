@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>IVARP</title>
+    <style>
+      body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin: 2rem; }
+      header { display:flex; align-items:center; gap:1rem }
+      .card { border:1px solid #e5e7eb; padding:1rem; border-radius:8px; max-width:720px }
+      a { color:#0366d6 }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>IVARP</h1>
+      <small>Integrated Vulnerability Assessment and Risk Platform</small>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>API</h2>
+        <p>Backend running with the following endpoints:</p>
+        <ul>
+          <li><a href="/docs" target="_blank">OpenAPI docs (/docs)</a></li>
+          <li><a href="/redoc" target="_blank">ReDoc (/redoc)</a></li>
+          <li><a href="/api/health" target="_blank">Health (GET /)</a> — returns health JSON</li>
+        </ul>
+        <p>Try the health check:</p>
+        <button id="check">Check API</button>
+        <pre id="out" style="white-space:pre-wrap;margin-top:1rem;background:#f8fafc;padding:0.75rem;border-radius:6px;border:1px solid #e6eef6"></pre>
+      </section>
+    </main>
+
+    <script>
+      document.getElementById('check').addEventListener('click', async () => {
+        const out = document.getElementById('out');
+        try {
+          const res = await fetch('/');
+          const text = await res.text();
+          out.textContent = text;
+        } catch (err) {
+          out.textContent = String(err);
+        }
+      });
+    </script>
+  </body>
+</html>
