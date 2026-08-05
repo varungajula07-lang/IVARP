@@ -68,7 +68,7 @@ EMAIL_PASSWORD=<smtp-password>
 SMTP_SERVER=<smtp-server>
 SMTP_PORT=<smtp-port>
 SLACK_WEBHOOK_URL=<slack-webhook-url>
-``` 
+```
 
 ## Running Backend
 
