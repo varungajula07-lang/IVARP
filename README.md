@@ -81,8 +81,36 @@ Once running, view Swagger at `http://localhost:8000/docs` and ReDoc at `http://
 
 ## Deployment
 
-- Backend: deploy `backend/app.main:app` to Render or Railway
-- Frontend: deploy a Next.js app to Vercel and connect to the backend URL
+### Render deployment
+
+This repository is configured to deploy both services on Render:
+
+- Backend: `ivarp-backend` uses `backend/Dockerfile` and the FastAPI app at `backend/app/main.py`
+- Frontend: `ivarp-frontend` serves the static files in `backend/frontend`
+
+Render will read `render.yaml` and can deploy both services from the same GitHub repo.
+
+Set these environment variables in Render for the backend service:
+
+- `DATABASE_URL`
+- `SECRET_KEY`
+- `ALGORITHM`
+- `ACCESS_TOKEN_EXPIRE_MINUTES`
+- `REFRESH_TOKEN_EXPIRE_MINUTES`
+- `EMAIL_USERNAME`
+- `EMAIL_PASSWORD`
+- `SMTP_SERVER`
+- `SMTP_PORT`
+- optional API keys: `OPENAI_API_KEY`, `VIRUSTOTAL_API_KEY`, `SHODAN_API_KEY`, etc.
+
+### Local run
+
+To run locally:
+
+```bash
+cd backend
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
 
 ## License
 
